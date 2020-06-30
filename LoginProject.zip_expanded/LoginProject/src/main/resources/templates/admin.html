@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<title>Admin-Page</title>
+<!-- CSS only -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body class="text-center p-4" style="background-color: #dbffed">
+
+	<h4>
+		<b><i>Welcome Admin</i></b>
+	</h4>
+	<br>
+
+	<a th:href="@{/admin/getAllUsers}"><b><i>View list of all
+				users</i></b></a>
+
+	<div class="text-center p-4">
+		<form th:action="@{/logout}" method="post">
+
+			<input type="submit" value="Logout">
+		</form>
+	</div>
+
+</body>
+</html>

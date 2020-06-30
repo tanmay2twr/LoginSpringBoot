@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<title>Registration-Page</title>
+<!-- CSS only -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+	<div class="text-center jumbotron">
+
+		<h4>
+			<b><i>Welcome To Online Quiz Registration</i></b>
+		</h4>
+
+	</div>
+
+	<div class="text-center p-4">
+
+		<form th:action="@{/newUser}" method="post">
+
+			<label class="p-4"><b><i>First Name</i></b> <input
+				type="text" id="firstname" required minlength="5" autofocus="true"
+				th:name="fname" pattern="[A-Za-z].{4,}" title="Minimum 5 alphabet">
+
+			</label><br> <label class="p-4"><b><i>Last Name</i></b> <input
+				type="text" id="lastname" required th:name="lname"
+				pattern="[a-zA-Z].{1,}" title="Minimum 2 alphabet"> </label><br>
+			<label class="p-4"><b><i>E-mail:</i></b> <input type="email"
+				id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+				th:name="email"> </label><br> <label class="p-4"><b><i>Password</i></b>
+				<input type="password" id="password" required minlength="8"
+				th:name="password" title="Minimum lenghth should be 8"> </label><br>
+
+			<div class="text-center p-4">
+				<input type="submit" value="REGISTER" id="register">
+			</div>
+
+		</form>
+
+	</div>
+
+</body>
+</html>

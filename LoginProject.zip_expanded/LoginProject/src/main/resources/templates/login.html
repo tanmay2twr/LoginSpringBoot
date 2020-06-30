@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<title>Online Assessment - Home Page</title>
+<!-- CSS only -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+	<h3 class="text-center jumbotron">
+		<b><i>Welcome To Online Assessment Login-Page</i></b>
+	</h3>
+	<div class=" text-center p-4">
+		<form th:action="@{/validate}" method="post">
+
+			<!-- Checking for Invalid Credintials -->
+			<div th:if="${param.error}" class="p-2 text-danger">
+				<h5>Invalid Credentials</h5>
+			</div>
+
+			<label class="p-2"><b><i>Email-Id:</i></b> <input
+				type="email" id="email" name="username" autofocus="true"
+				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required> </label>
+			<br> <label class="p-2 pt-3"><b><i>Password:</i></b> <input
+				type="password" name="password" required minlength="5"> <br>
+
+				<div class="p-4 ">
+					<input type="submit" value="LOGIN" class="btn btn-primary "
+						id="login">
+				</div> </label>
+
+		</form>
+	</div>
+
+	<div class="text-center p-2">
+		<label><b><i>New User ?</i></b></label> <a th:href="@{/register}"><b><i>
+					Register Here</i></b></i></a>
+
+	</div>
+
+	<!-- Logout Message -->
+	<div th:if="${param.logout}" class="text-center">
+		<h5>You Have Successfully Logged Out</h5>
+
+	</div>
+
+	</div>
+</body>

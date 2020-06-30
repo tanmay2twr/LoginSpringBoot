@@ -1,0 +1,64 @@
+
+<html xmlns:th="https://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<title>Admin-Page</title>
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+
+
+<style>
+
+table{
+   margin: 0 auto
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="text-center p-4">
+<h4><b><i>List of All Users:</i></b></h4>
+<hr>
+
+<table border="2" class="text-center p-4">
+
+<thead>
+<tr>
+<th class="text-center p-4"><b><i>First-Name</i></b></th>
+<th class="text-center p-4"><b><i>Last-Name</i></b></th>
+<th class="text-center p-4"><b><i>E-mail</i></b></th>
+<th class="text-center p-4"><b><i>User-Type</i></b></th>
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+<tr th:each="tempUsers:${users}">
+
+<td class="text-center p-4" th:text="${tempUsers.firstname}"></td>
+<td class="text-center p-4"  th:text="${tempUsers.lastname}"></td>
+<td class="text-center p-4"  th:text="${tempUsers.username}"></td>
+<td class="text-center p-4" th:text="${tempUsers.Type}"></td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+<br><br>
+
+<form th:action="@{/admin}">
+<input type="submit" value="Go-Back">
+
+</form>
+
+</div>
+</body>
